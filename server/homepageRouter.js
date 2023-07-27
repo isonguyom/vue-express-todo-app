@@ -17,7 +17,7 @@ router.get("/*", async (_req, res) => {
 const parseManifest = async () => {
   if (environment !== "production") return {};
 
-  const manifestPath = path.join(path.resolve(), "dist", "manifest.json");
+  const manifestPath = path.join("dist", "manifest.json");
   const manifestFile = await fs.readFile(manifestPath);
 
   return JSON.parse(manifestFile);
