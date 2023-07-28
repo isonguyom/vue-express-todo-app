@@ -45,7 +45,7 @@ export default {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ todo: this.newItem })
     };
-    fetch("https://vue-express-app.onrender.com/api/todos", requestOptions)
+    fetch("http://localhost:3000/api/todos", requestOptions)
       .then(res => res.json())
       .then(data => (this.todos = data));
  
@@ -66,7 +66,7 @@ export default {
 
     fetchTodos() {
       
-      fetch("https://vue-express-app.onrender.com/api/todos")
+      fetch("http://localhost:3000/api/todos")
       .then(res => res.json())
       .then(data => (this.todos = data));
 
@@ -79,7 +79,7 @@ export default {
 
     delItem(id) {
       // this.todos = this.todos.filter((i) => i !== item);
-      fetch(`https://vue-express-app.onrender.com/api/todos/${id}`, { method: 'DELETE' })
+      fetch(`http://localhost:3000/api/todos/${id}`, { method: 'DELETE' })
       .then((res) => res.json())
           .then((data) => (this.todos = data.todo));
     }
