@@ -2,7 +2,7 @@ import express from "express";
 import path from "path";
 import bodyParser from "body-parser";
 import multer from "multer";
-const upload = multer();
+import cors from "cors"
 import homepageRouter from "./homepageRouter.js";
 import todos from "./todos.js";
 import assetsRouter from "./assetsRouter.js";
@@ -12,6 +12,9 @@ const publicPath = path.join("public");
 const distPath = path.join("dist");
 
 const app = express();
+const upload = multer();
+
+app.use(cors())
 
 app.get("/api/v1/hello", (_req, res) => {
   res.json({ message: "Hello, world!" });
